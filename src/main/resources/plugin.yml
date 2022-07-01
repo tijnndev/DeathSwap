@@ -1,0 +1,9 @@
+name: Deathswap
+version: '${project.version}'
+main: me.tijn.deathswap.Main
+api-version: 1.18
+commands:
+  dstart:
+    description: Start the DeathSwap Timer
+  dhelp:
+    description: Get the DeathSwap help menu
