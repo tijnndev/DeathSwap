@@ -18,9 +18,9 @@ import java.util.List;
 public class Start implements CommandExecutor {
 
     private Main m = Main.getInstance();
-    public static Player jogador1;
+    public static Player player1;
 
-    public static Player jogador2;
+    public static Player player2;
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if((sender instanceof Player)) {
@@ -28,8 +28,8 @@ public class Start implements CommandExecutor {
                 Bukkit.broadcastMessage("§l§cThis plugin requires 2 players.");
                 return false;
             }
-            jogador1 = (Player) Bukkit.getOnlinePlayers().toArray()[0];
-            jogador2 = (Player) Bukkit.getOnlinePlayers().toArray()[1];
+            player1 = (Player) Bukkit.getOnlinePlayers().toArray()[0];
+            player2 = (Player) Bukkit.getOnlinePlayers().toArray()[1];
             startTimer();
             Bukkit.broadcastMessage("§aDeath Swap has started!");
         } else {
@@ -94,12 +94,12 @@ public class Start implements CommandExecutor {
                                                                                             @Override
                                                                                             public void run() {
                                                                                                         try {
-                                                                                                            jogador1 = (Player) Bukkit.getOnlinePlayers().toArray()[0];
-                                                                                                            jogador2 = (Player) Bukkit.getOnlinePlayers().toArray()[1];
-                                                                                                            Location player1loc = jogador1.getLocation();
-                                                                                                            Location player2loc = jogador2.getLocation();
-                                                                                                            jogador1.teleport(player2loc);
-                                                                                                            jogador2.teleport(player1loc);
+                                                                                                            player1 = (Player) Bukkit.getOnlinePlayers().toArray()[0];
+                                                                                                            player2 = (Player) Bukkit.getOnlinePlayers().toArray()[1];
+                                                                                                            Location player1loc = player1.getLocation();
+                                                                                                            Location player2loc = player2.getLocation();
+                                                                                                            player1.teleport(player2loc);
+                                                                                                            player2.teleport(player1loc);
                                                                                                         } catch (Exception e) {
                                                                                                             for (Player todos : Bukkit.getOnlinePlayers()) {
                                                                                                                 todos.sendMessage("§c§lError occured while teleporting players, please check your server console");
